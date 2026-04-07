@@ -2,6 +2,7 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   /* config options here */
+  output: 'standalone', // <--- 只需要添加这一行
   devIndicators: false,
   images: {
     unoptimized: true,

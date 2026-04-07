@@ -1,0 +1,11 @@
+services:
+  cover-tool:  # 服务名称为 cover-tool
+    image: ywsj/cover:latest  # 使用已构建的镜像 ywsj/cover:latest
+    container_name: cover-app  # 容器名称设置为 cover-app
+    restart: always  # 容器异常停止时自动重启
+    ports:
+      - "3000:3000"  # 将容器的 3000 端口映射到主机的 3000 端口
+    environment:
+      - NEXT_PUBLIC_API_ACCESS_KEY=ju3cpbHmFTiWRiJBtq2rWxdMBQKUbQ3vvLMKOWUobT2  # NEXT_PUBLIC_API_ACCESS_KEY 即 unsplash api，需要到官网申请 https://unsplash.com/developers
+      - NEXT_PUBLIC_API_ICONIFY_URL=https://api.iconify.design  # 设置 Iconify 图标 API 的 URL
+      - TZ=Asia/Shanghai  # 设置容器时区为上海时间（Asia/Shanghai）
