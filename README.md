@@ -24,6 +24,9 @@ NEXT_PUBLIC_API_ACCESS_KEY 即 unsplash api，需要到官网申请 https://unsp
 ## Docker部署
 
 注意申请Iconify 图标 API 
+
+![api申请](https://github.com/yyzq-cf/cover/blob/main/api.png)
+
 ### Docker一键部署 
 ```bash
 docker run -d \
