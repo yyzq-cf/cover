@@ -21,6 +21,53 @@ NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN = 'xxxxx'
 
 NEXT_PUBLIC_API_ACCESS_KEY 即 unsplash api，需要到官网申请 https://unsplash.com/developers
 
+## Docker部署
+
+### Docker一键部署 
+```bash
+docker run -d \
+  --name cover-app \  # 设置容器名称为 cover-app
+  -p 3000:3000 \  # 将容器的 3000 端口映射到主机的 3000 端口
+  -e NEXT_PUBLIC_API_ACCESS_KEY=ju3cpbHmFTiWRiJBtq2rWxdMBQKUbQ3vvLMKOWUobT2 \  # 设置 NEXT_PUBLIC_API_ACCESS_KEY（请替换为你的实际值）
+  -e NEXT_PUBLIC_API_ICONIFY_URL=https://api.iconify.design \  # 设置 Iconify 图标 API 的 URL
+  -e TZ=Asia/Shanghai \  # 设置容器时区为上海时间（Asia/Shanghai）
+  --restart always \  # 容器异常停止时自动重启
+  ywsj/cover:latest  # 使用已构建的镜像 ywsj/cover:latest
+```
+
+### docker-compose部署
+```bash
+services:
+  cover-tool:  # 服务名称为 cover-tool
+    image: ywsj/cover:latest  # 使用已构建的镜像 ywsj/cover:latest
+    container_name: cover-app  # 容器名称设置为 cover-app
+    restart: always  # 容器异常停止时自动重启
+    ports:
+      - "3000:3000"  # 将容器的 3000 端口映射到主机的 3000 端口
+    environment:
+      - NEXT_PUBLIC_API_ACCESS_KEY=ju3cpbHmFTiWRiJBtq2rWxdMBQKUbQ3vvLMKOWUobT2  # NEXT_PUBLIC_API_ACCESS_KEY 即 unsplash api，需要到官网申请 https://unsplash.com/developers
+      - NEXT_PUBLIC_API_ICONIFY_URL=https://api.iconify.design  # 设置 Iconify 图标 API 的 URL
+      - TZ=Asia/Shanghai  # 设置容器时区为上海时间（Asia/Shanghai）
+```
+
+## 自定义修改
+
+如果想修改源码里面的内容可以先修改内容
+然后自行构建本地docker镜像
+
+```bash
+git clone https://github.com/yyzq-cf/cover
+```
+```bash
+cd cover
+```
+```bash
+docker-compose up -d
+```
+
+
+
+
 ## 功能修改
 
 - [x] 文字汉化
