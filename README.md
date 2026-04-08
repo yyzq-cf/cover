@@ -59,12 +59,21 @@ services:
 如果想修改源码里面的内容可以先修改内容
 然后自行构建本地docker镜像
 
+首先将项目git到本地
 ```bash
 git clone https://github.com/yyzq-cf/cover
 ```
+然后进入此项目
 ```bash
 cd cover
 ```
+修改自己需要修改的内容
+
+接下来构建本地镜像
+```bash
+docker build -t ywsj/cover:latest .
+```
+最后启动即可
 ```bash
 docker-compose up -d
 ```
