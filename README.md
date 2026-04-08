@@ -68,7 +68,8 @@ git clone https://github.com/yyzq-cf/cover
 cd cover
 ```
 修改自己需要修改的内容
-
+比如这个内容文件路径如图
+![](https://github.com/yyzq-cf/cover/blob/main/yuanmaxiugai.png)
 接下来构建本地镜像
 ```bash
 docker build -t ywsj/cover:latest .
